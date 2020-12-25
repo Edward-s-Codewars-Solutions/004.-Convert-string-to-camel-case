@@ -1,6 +1,5 @@
 ﻿// Unit tests in this file were just copied from Codewars portal
 
-using KataLibrary;
 using NUnit.Framework;
 
 [TestFixture]
