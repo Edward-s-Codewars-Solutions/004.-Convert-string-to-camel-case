@@ -7,16 +7,27 @@ public static class Kata
 
     public static string ToCamelCase(string sentence)
     {
-        
+        throw new NotImplementedException();
     }
+
+    public static bool IsMatchingDashLetterRegexPattern(string inputString) =>
+        Regex.IsMatch(inputString, DashLetterRegexPattern);
 
     public static string MatchToUCaseSecondChar(Match match)
     {
+        int minLength = 2;
         int letterIndex = 1;
         int letterLength = 1;
-        return match
-            .Value
-            .Substring(letterIndex, letterLength)
-            .ToUpper();
+
+        return match.Value.Length switch
+        {
+            int len
+                when len < minLength    
+                    =>  default,
+            _       =>  match
+                            .Value
+                            .Substring(letterIndex, letterLength)
+                            .ToUpper()
+        };
     }
 }
