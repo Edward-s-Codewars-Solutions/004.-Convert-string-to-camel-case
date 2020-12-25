@@ -14,9 +14,6 @@ namespace KataLibrary
                 .Replace(sentence, DashLetterRegexPattern, dashLetterEvaluator);
         }
 
-        public static bool IsMatchingDashLetterRegexPattern(string inputString) =>
-            Regex.IsMatch(inputString, DashLetterRegexPattern);
-
         public static string MatchToUCaseSecondChar(Match match)
         {
             int minLength = 2;
