@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using KataLibrary;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 

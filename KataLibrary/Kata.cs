@@ -1,35 +1,39 @@
 ﻿using System.Text.RegularExpressions;
 
-public static class Kata
+namespace KataLibrary
 {
-    private const string DashLetterRegexPattern = @"[\-_][a-zA-Z]";
-
-    public static string ToCamelCase(string sentence)
+    public static class Kata
     {
-        var dashLetterEvaluator = new MatchEvaluator(MatchToUCaseSecondChar);
+        private const string DashLetterRegexPattern = @"[\-_][a-zA-Z]";
 
-        return Regex
-            .Replace(sentence, DashLetterRegexPattern, dashLetterEvaluator);
-    }
-
-    public static bool IsMatchingDashLetterRegexPattern(string inputString) =>
-        Regex.IsMatch(inputString, DashLetterRegexPattern);
-
-    public static string MatchToUCaseSecondChar(Match match)
-    {
-        int minLength = 2;
-        int letterIndex = 1;
-        int letterLength = 1;
-
-        return match.Value.Length switch
+        public static string ToCamelCase(string sentence)
         {
-            int len
-                when len < minLength    
-                    =>  default,
-            _       =>  match
-                            .Value
-                            .Substring(letterIndex, letterLength)
-                            .ToUpper()
-        };
+            var dashLetterEvaluator = new MatchEvaluator(MatchToUCaseSecondChar);
+
+            return Regex
+                .Replace(sentence, DashLetterRegexPattern, dashLetterEvaluator);
+        }
+
+        public static bool IsMatchingDashLetterRegexPattern(string inputString) =>
+            Regex.IsMatch(inputString, DashLetterRegexPattern);
+
+        public static string MatchToUCaseSecondChar(Match match)
+        {
+            int minLength = 2;
+            int letterIndex = 1;
+            int letterLength = 1;
+
+            return match.Value.Length switch
+            {
+                int len
+                    when len < minLength
+                        => default,
+                _ => match
+                                .Value
+                                .Substring(letterIndex, letterLength)
+                                .ToUpper()
+            };
+        }
     }
+
 }
