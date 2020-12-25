@@ -9,4 +9,14 @@ public static class Kata
     {
         
     }
+
+    public static string MatchToUCaseSecondChar(Match match)
+    {
+        int letterIndex = 1;
+        int letterLength = 1;
+        return match
+            .Value
+            .Substring(letterIndex, letterLength)
+            .ToUpper();
+    }
 }
