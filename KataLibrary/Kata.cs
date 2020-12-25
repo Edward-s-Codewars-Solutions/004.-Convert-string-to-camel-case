@@ -7,7 +7,10 @@ public static class Kata
 
     public static string ToCamelCase(string sentence)
     {
-        throw new NotImplementedException();
+        var dashLetterEvaluator = new MatchEvaluator(MatchToUCaseSecondChar);
+
+        return Regex
+            .Replace(sentence, DashLetterRegexPattern, dashLetterEvaluator);
     }
 
     public static bool IsMatchingDashLetterRegexPattern(string inputString) =>
